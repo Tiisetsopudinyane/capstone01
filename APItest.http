@@ -1,5 +1,4 @@
-
-### Add user
+### Sign-up
 
 POST http://localhost:3011/api/addUser/
 content-type: application/json
@@ -11,4 +10,14 @@ content-type: application/json
   "username" : "Yfqyrrhtfy",
   "password" : "00qyh060",
   "userType" : "admin"
+}
+
+### Login
+
+POST http://localhost:3011/api/login/
+content-type: application/json
+
+{
+  "username" : "youshi",
+  "password" : "youshi"
 }

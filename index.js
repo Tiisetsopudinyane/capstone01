@@ -53,3 +53,22 @@ app.post("/api/addUser/", async (req,res)=>{
         })
     }
 });
+
+//Login
+app.post("/api/login/", async (req,res)=>{
+    const username = await db.get("select * from user where username = ?", req.body.username);
+    const password = await db.get("select * from user where password = ?", req.body.password);
+    if (username && password){
+        res.json({
+            success : "Login successful!"
+        })
+    }else if(!username){
+        res.json({
+            error : "User does not exist!"
+        })
+    }else if(!password){
+        res.json({
+            error : "Incorrect password!"
+        })
+    }
+})

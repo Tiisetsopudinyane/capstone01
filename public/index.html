@@ -21,17 +21,27 @@
         <h2>Login</h2>
         <div class="input-box">
           <i class="bx bx-user"></i>
-          <input type="text" placeholder="Username" required />
+          <input
+            x-model="username"
+            type="text"
+            placeholder="Username"
+            required
+          />
         </div>
         <div class="input-box">
           <i class="bx bx-lock"></i>
-          <input type="password" placeholder="Password" required />
+          <input
+            x-model="password"
+            type="password"
+            placeholder="Password"
+            required
+          />
         </div>
-        <div class="remember">
+        <!-- <div class="remember">
           <label><input type="checkbox" />Remember me</label>
           <a href="#">Forget password?</a>
-        </div>
-        <button type="submit" class="btn">Enter</button>
+        </div> -->
+        <button type="submit" class="btn" @click="login(event)">Enter</button>
         <div class="registration">
           <p>Dont have an account? <a href="./signup.html">Register Now!</a></p>
         </div>

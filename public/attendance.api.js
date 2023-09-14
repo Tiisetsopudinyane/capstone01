@@ -22,8 +22,6 @@ document.addEventListener('alpine:init', () => {
 					alert(`Please ensure:(1) Email address has the correct format.
                        (2) User type is selected.
                        (3) Passwords match.`);
-
-                    this.formValid = false;
 				} else {
 					axios.post('/api/addUser/', {
 						firstName : this.firstName,
@@ -49,9 +47,21 @@ document.addEventListener('alpine:init', () => {
 					  })
 				}
 			},
-			init() {
-				
-			},
+
+			login(event){
+				event.preventDefault();
+				axios.post("/api/login/", {
+					username : this.username,
+					password : this.password
+				}).then((result)=>{
+					if(result.data.success){
+						alert(result.data.success);
+						// window.location.href = './registers.html';
+					}else{
+						alert(result.data.error)
+					}
+				})
+			}
 		}
 
 	});
