@@ -53,23 +53,6 @@ app.post("/api/addUser/", async (req,res)=>{
         })
     }
 
-app.get('/api/login/',async (req,res)=>{
-     const results=await db.get('select username,userType,password from user where username=? and password=?',[req.body.username,req.body.password]);
-     console.log(results);
-     res.json({
-        password:results.password,
-        username:results.username,
-        userType:results.userType,
-        status:"passed"
-     })
-})
+
+
 });
-
-
-
-
-// const results=await db.get("select username,userType,password from user")
-// const username=results.username;
-// const userType=results.userType;
-// const password=results.password;
-// console.log("username :"+username+ " password :"+password+" userType:"+userType)

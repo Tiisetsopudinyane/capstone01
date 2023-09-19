@@ -11,8 +11,6 @@ document.addEventListener('alpine:init', () => {
 			confirmPassword:'',
 			userType:'',
 			emailValid: true,
-			lPassword:'',
-			lUsername:'',
 			validateEmail() {
 				const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 				this.emailValid = emailPattern.test(this.email);
@@ -54,30 +52,7 @@ document.addEventListener('alpine:init', () => {
 			init() {
 				
 			},
-			login(){
-				
-				axios.get(`/api/login/`,{username:this.lUsername,password:this.lPassword})
-				.then((result)=>{
-					 
-					if(result.data.status==="Accessed"){ 
-
-						if(result.data.userType==="admin"){
-						   window.location.href='./register.html'
-						}
-						//navigate to the scan screen if you are not an admit
-						else if(result.data.userType==="attendee"){
-							window.location.href='./scan.html'
-						}
-					}
-					//else if status is not Accessed you are not registered
-					//system will navigate you to sign up
-					else{
-						alert("you are not registered to the system");
-						window.location.href='./signup.html'
-					}
-					
-				})
-			},
+			
 		}
 
 	});
